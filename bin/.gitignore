@@ -1,5 +1,0 @@
-# Ignore everything except .gitignore in this directory
-# This is needed as a place holder for this directory.
-*
-!.gitignore
-

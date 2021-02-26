@@ -8,41 +8,20 @@ rudimentary intelligence on brute force attacks.
 
 ### Linux
 
-Make sure libssh and libjson-c are installed
+Make sure libssh is installed
 
-    $ apt install libssh-dev libjson-c-dev
-
-### OSX
-
-_NOTE: Haven't tested json logging on OSX_
-
-Make sure that xcode is up to date.
-
-Install libssh and json-c
-
-    $ brew install libssh json-c
-
-Specify MakefileOSX with make:
-
-    $ make -f MakefileOSX
-
-
-
-### Docker (experimental)
-
-Please take a look at our [Docker documentation](docker/README.md).
-
+    $ apt install libssh-dev
 
 
 ## Build and Run
 
     $ make
-    $ ssh-keygen -t rsa -f ./ssh-honeypot.rsa
-    $ bin/ssh-honeypot -r ./ssh-honeypot.rsa
+    $ ssh-keygen -t rsa -f ./key.rsa
+    $ ./ssh-honeypot -r ./key.rsa
 
 ## Usage
 
-    $ bin/ssh-honeypot -h
+    $ ./ssh-honeypot -h
 
 ## Syslog facilities
 
@@ -63,7 +42,7 @@ after binding to a privileged port. You can now run this as _nobody_
 on port 22 for example instead of root, but have to initially start it
 as root:
 
-	$ sudo bin/ssh-honeypot -p 22 -u nobody
+	$ sudo ./ssh-honeypot -p 22 -u nobody
 
 Beware that this chowns the logfile to the user specified as well.
 
@@ -71,7 +50,7 @@ Beware that this chowns the logfile to the user specified as well.
 
 List available banners
 
-    $ bin/ssh-honeypot -b
+    $ ./ssh-honeypot -b
 
 Set banner string
 
